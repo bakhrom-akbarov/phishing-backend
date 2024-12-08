@@ -3,32 +3,16 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: Dockerfile
     container_name: backend
     ports:
       - "3001:3001"
     environment:
       NODE_ENV: production
       MONGO_URI: mongodb://mongodb:27017/nestjs_db
-    volumes:
-      - ./apps/backend:/app
-      - ./node_modules:/app/node_modules:cached
     depends_on:
       - mongodb
     command: npm run start:dev
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    environment:
-      NODE_ENV: production
-    volumes:
-      - ./apps/frontend:/app
-    command: npm start
 
   mongodb:
     image: mongo:5.0

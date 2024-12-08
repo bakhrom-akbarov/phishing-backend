@@ -31,7 +31,7 @@ export class EmailService {
         },
         Subject: { Data: subject },
       },
-      Source: 'noreply@yonimda.uz', // Replace with a verified email in AWS SES
+      Source: 'noreply@yonimda.uz',
     };
 
     const command = new SendEmailCommand(params);

@@ -1,14 +1,15 @@
 FROM node:18-alpine
 
-WORKDIR /phishing
+WORKDIR /app
 
-COPY apps/backend/package.json ./
+COPY package.json ./
+COPY package-lock.json ./
 
 RUN npm i -g @nestjs/cli chalk@4.1.2 --silent
 
 RUN npm install --silent
 
-COPY apps/backend ./
+COPY . ./
 
 RUN npm run build
 
