@@ -31,7 +31,7 @@ export class EmailService {
         },
         Subject: { Data: subject },
       },
-      Source: 'noreply@yonimda.uz',
+      Source: this.configService.get<string>('AWS_SES_EMAIL'),
     };
 
     const command = new SendEmailCommand(params);

@@ -2,10 +2,9 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY package.json package-lock.json ./
 
-RUN npm i -g @nestjs/cli chalk@4.1.2 --silent
+RUN npm i -g @nestjs/cli --silent
 
 RUN npm install --silent
 
